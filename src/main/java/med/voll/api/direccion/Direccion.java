@@ -4,6 +4,7 @@ package med.voll.api.direccion;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.PersistenceConstructor;
 
@@ -31,7 +32,7 @@ public class Direccion {
         this.estado = datosDireccion.estado();
     }
 
-    public Direccion() {
-        System.out.println("Constructor sin argumentos");
-    }
+//    public Direccion() {
+//        System.out.println("Constructor sin argumentos");
+//    }
 }

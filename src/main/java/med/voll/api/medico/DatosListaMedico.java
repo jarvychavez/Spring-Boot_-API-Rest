@@ -8,11 +8,9 @@ public record DatosListaMedico(
 
 ) {
     public DatosListaMedico(Medico medico) {
-        this(
-                medico.getNombre(),
+        this(medico.getNombre(),
                 medico.getEmail(),
                 medico.getDocumento(),
-                medico.getEspecialidad()
-        );
+                medico.getEspecialidad());
     }
 }
