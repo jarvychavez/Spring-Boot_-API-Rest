@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 @Getter
 @NoArgsConstructor
@@ -19,6 +20,7 @@ public class Direccion {
     private String codigo_postal;
     private String estado;
 
+
     public Direccion(DatosDireccion datosDireccion) {
         this.calle = datosDireccion.calle();
         this.numero = datosDireccion.numero();
@@ -27,5 +29,9 @@ public class Direccion {
         this.ciudad = datosDireccion.ciudad();
         this.codigo_postal = datosDireccion.codigo_postal();
         this.estado = datosDireccion.estado();
+    }
+
+    public Direccion() {
+        System.out.println("Constructor sin argumentos");
     }
 }
