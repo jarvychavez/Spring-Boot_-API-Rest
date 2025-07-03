@@ -35,4 +35,16 @@ public class Medico {
         this.especialidad = datos.especialidad();
         this.direccion = new Direccion(datos.direccion());
     }
+
+    public void actualizarInformaciones(DatosActualizacionMedico datos) {
+        if (datos.nombre() != null){
+            this.nombre = datos.nombre();
+        }
+        if (datos.telefono() != null){
+            this.telefono = datos.nombre();
+        }
+        if (datos.direccion() != null){
+            this.direccion.actualizarDireccion(datos.direccion());
+        }
+    }
 }
