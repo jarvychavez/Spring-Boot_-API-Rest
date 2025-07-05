@@ -1,8 +1,11 @@
 package med.voll.api.medico;
 
-
 import jakarta.persistence.*;
-import lombok.*;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import med.voll.api.direccion.Direccion;
 
 @Table(name = "medicos")
@@ -38,14 +41,14 @@ public class Medico {
         this.direccion = new Direccion(datos.direccion());
     }
 
-    public void actualizarInformaciones(DatosActualizacionMedico datos) {
-        if (datos.nombre() != null){
+    public void actualizarInformaciones(@Valid DatosActualizacionMedico datos) {
+        if (datos.nombre() != null) {
             this.nombre = datos.nombre();
         }
-        if (datos.telefono() != null){
-            this.telefono = datos.nombre();
+        if (datos.telefono() != null) {
+            this.telefono = datos.telefono();
         }
-        if (datos.direccion() != null){
+        if (datos.direccion() != null) {
             this.direccion.actualizarDireccion(datos.direccion());
         }
     }
@@ -54,3 +57,5 @@ public class Medico {
         this.activo = false;
     }
 }
+
+//this.direccion.actualizarDireccion(datos.direccion());

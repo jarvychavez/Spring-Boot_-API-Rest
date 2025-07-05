@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/medicos")
 public class MedicoController {
@@ -23,7 +21,7 @@ public class MedicoController {
 
     @Transactional
     @PostMapping
-    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroMedico datos, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity<DatosDetalleMedico> registrar(@RequestBody @Valid DatosRegistroMedico datos, UriComponentsBuilder uriComponentsBuilder){
         var medico = new Medico(datos);
         repository.save(medico);
 
@@ -34,9 +32,9 @@ public class MedicoController {
 
     @GetMapping
     public ResponseEntity<Page<DatosListaMedico>> listar(@PageableDefault(size = 10, sort = {"nombre"}) Pageable paginacion){
-      var page = repository.findAllByActivoTrue(paginacion).map(DatosListaMedico::new);
+        var page = repository.findAllByActivoTrue(paginacion).map(DatosListaMedico::new);
 
-      return ResponseEntity.ok(page);
+        return ResponseEntity.ok(page);
     }
 
     @Transactional
@@ -51,10 +49,10 @@ public class MedicoController {
     @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity eliminar(@PathVariable Long id) {
-       var medico = repository.getReferenceById(id);
-       medico.eliminar();
+        var medico = repository.getReferenceById(id);
+        medico.eliminar();
 
-       return ResponseEntity.noContent().build();
+        return ResponseEntity.noContent().build();
     }
 
 

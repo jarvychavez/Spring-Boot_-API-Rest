@@ -7,7 +7,7 @@ public record DatosDetallePaciente(
         String telefono,
         String documentoIdentidad,
         Direccion direccion) {
-    public DatosDetallePaciente(Paciente paciente) {
+    public DatosDetallePaciente(med.voll.api.paciente.Paciente paciente) {
         this(
                 paciente.getNombre(),
                 paciente.getEmail(),
