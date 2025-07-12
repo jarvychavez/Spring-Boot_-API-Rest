@@ -24,6 +24,7 @@ public class GestorDeErrores {
 
     public record  DatosErrorValidacion(String campo, String mensaje){
         public DatosErrorValidacion(FieldError error){
+
             this(error.getField(), error.getDefaultMessage());
         }
     }
