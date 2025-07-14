@@ -21,3 +21,5 @@ public class ValidacionConsultaConAnticipacion implements ValidadorDeConsultas{
     }
 
 }
+
+//javier alberto chavez cordova...!"
